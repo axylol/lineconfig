@@ -1,0 +1,16 @@
+#pragma once
+#include <imgui.h>
+#include <imgui_impl_sdl2.h>
+#include <imgui_impl_dx11.h>
+#include <d3d11.h>
+#include <stdio.h>
+#include <SDL.h>
+#include <SDL_syswm.h>
+#include <iostream>
+#include <vector>
+#undef main
+#undef WinMain
+#include "toml.hpp"
+#include "input.h"
+#include "funcs.h"
+#include "gui.h"

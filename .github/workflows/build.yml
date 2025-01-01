@@ -1,0 +1,22 @@
+name: Build
+on:
+  workflow_dispatch:
+  push:
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: microsoft/setup-msbuild@v2
+
+      - name: Build
+        working-directory: ${{env.GITHUB_WORKSPACE}}
+        run: msbuild /m /p:Platform=x86 /p:Configuration=Release lineconfig.sln
+      
+      - name: Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Release
+          path: Release/lineconfig.exe
+          retention-days: 7
